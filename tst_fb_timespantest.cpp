@@ -30,10 +30,9 @@ void FB_TimespanTest::construct()
 
     //============================
     // Constructor from 2 QTime
-    QTime time1 = QTime::currentTime();
+    QTime time1 = QTime::fromString("12:45");
     QTime time2 = time1.addSecs(20);
     time2 = time2.addSecs(60*60*5);
-
 
     FB_Timespan ts2(&time1, &time2);
     QCOMPARE(ts2.getSecs(), 20);
@@ -43,12 +42,11 @@ void FB_TimespanTest::construct()
     // Constructor from 2 QDate
 
     QDate d1 = QDate::currentDate();
-    QDate d2 = d1.addYears(0);
-    d2 = d2.addDays(30);
+    QDate d2 = d1.addDays(25);
 
 
     FB_Timespan ts3(&d1, &d2);
-    QCOMPARE(ts3.getDays(), 30);
+    QCOMPARE(ts3.getDays(), 25);
     QCOMPARE(ts3.getHours(),0);
 }
 

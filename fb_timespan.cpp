@@ -15,8 +15,8 @@ FB_Timespan::FB_Timespan(QDateTime *a, QDateTime *b)
 
 FB_Timespan::FB_Timespan(QDate *a, QDate *b)
 {
-    diff = (b->toJulianDay() - a->toJulianDay()) * MSECS_DAY;
-    fromMSecs(diff);
+    hours = mins = secs = msecs = 0;
+    days = (b->toJulianDay() - a->toJulianDay());
 }
 
 FB_Timespan::FB_Timespan(QTime *a, QTime *b)
