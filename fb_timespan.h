@@ -14,26 +14,27 @@ class FB_Timespan
 {
 public:
     FB_Timespan();
+
+    FB_Timespan(qint64 msec);
+    FB_Timespan(int h, int m, int s);
+    FB_Timespan(int d, int h, int m, int s);
+    FB_Timespan(int d, int h, int m, int s, int ms);
+
     FB_Timespan(QDateTime *a, QDateTime *b);
     FB_Timespan(QDate *a, QDate *b);
     FB_Timespan(QTime *a, QTime *b);
+
     void fromMSecs(qint64 msecs);
+
     void add(int days, int hours, int minutes, int seconds, int mSeconds);
+
     QString toString(QString format);
-    int getMsecs() const;
-    void setMsecs(int value);
 
-    int getSecs() const;
-    void setSecs(int value);
-
-    int getMins() const;
-    void setMins(int value);
-
+    int getMilliseconds() const;
+    int getSeconds() const;
+    int getMinutes() const;
     int getHours() const;
-    void setHours(int value);
-
     int getDays() const;
-    void setDays(int value);
 
 private:
     int msecs;
@@ -42,6 +43,13 @@ private:
     int hours;
     int days;
     qint64 diff;
+
+
+    void addMilliseconds(int value);
+    void addSeconds(int value);
+    void addMinutes(int value);
+    void addHours(int value);
+    void addDays(int value);
 };
 
 #endif // FB_TIMESPAN_H
