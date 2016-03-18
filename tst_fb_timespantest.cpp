@@ -30,7 +30,6 @@ void FB_TimespanTest::constructors()
     QCOMPARE(ts.getMinutes(), 34);
     QCOMPARE(ts.getSeconds(), 15);
 
-
     FB_Timespan ts2(3, 90, 87);
     QCOMPARE(ts2.getHours(), 4);
     QCOMPARE(ts2.getMinutes(), 31);
@@ -42,7 +41,6 @@ void FB_TimespanTest::constructors()
     QCOMPARE(ts3.getMinutes(), -31);
     QCOMPARE(ts3.getSeconds(), -27);
     QCOMPARE(ts3.getMilliseconds(), 0);
-
 
     FB_Timespan ts4(0, 420, 0);
     QCOMPARE(ts4.getHours(), 7);
@@ -122,7 +120,36 @@ void FB_TimespanTest::negDiffConstructors()
 
 void FB_TimespanTest::toString()
 {
+    FB_Timespan ts(3, 34, 15);
+    FB_Timespan ts2(3, 90, 87);
+    FB_Timespan ts3(-3, -90, -87);
+    FB_Timespan ts4(0, 420, 0);
 
+    QCOMPARE(ts.toString("hh:mm"), QString("03:34"));
+    QCOMPARE(ts.toString("h:mm:ss"), QString("3:34:15"));
+
+
+
+    /*
+    QCOMPARE(ts.getHours(), 3);
+    QCOMPARE(ts.getMinutes(), 34);
+    QCOMPARE(ts.getSeconds(), 15);
+
+    QCOMPARE(ts2.getHours(), 4);
+    QCOMPARE(ts2.getMinutes(), 31);
+    QCOMPARE(ts2.getSeconds(), 27);
+    QCOMPARE(ts2.getMilliseconds(), 0);
+
+    QCOMPARE(ts3.getHours(), -4);
+    QCOMPARE(ts3.getMinutes(), -31);
+    QCOMPARE(ts3.getSeconds(), -27);
+    QCOMPARE(ts3.getMilliseconds(), 0);
+
+    QCOMPARE(ts4.getHours(), 7);
+    QCOMPARE(ts4.getMinutes(), 0);
+    QCOMPARE(ts4.getSeconds(), 0);
+    QCOMPARE(ts4.getMilliseconds(), 0);
+    */
 }
 
 QTEST_APPLESS_MAIN(FB_TimespanTest)
