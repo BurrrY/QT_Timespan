@@ -100,8 +100,8 @@ void FB_Timespan::add(int days, int hours, int minutes, int seconds, int mSecond
 QString FB_Timespan::toString(QString format) {
     QString result = format;
 
-    result.replace("hh", QString("%1").arg(days, 2, 10, QChar('0')));
-    result.replace("h", QString::number(days));
+    result.replace("dd", QString("%1").arg(days, 2, 10, QChar('0')));
+    result.replace("d", QString::number(days));
 
     result.replace("hh", QString("%1").arg(hours, 2, 10, QChar('0')));
     result.replace("h", QString::number(hours));
