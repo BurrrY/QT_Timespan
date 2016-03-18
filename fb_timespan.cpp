@@ -4,7 +4,7 @@
 
 FB_Timespan::FB_Timespan()
 {
-
+    days = hours = mins = secs = msecs = 0;
 }
 
 FB_Timespan::FB_Timespan(QDateTime *a, QDateTime *b)
@@ -65,8 +65,24 @@ void FB_Timespan::add(int days, int hours, int minutes, int seconds, int mSecond
 }
 
 QString FB_Timespan::toString(QString format) {
+    QString result = format;
 
+    result.replace("hh", QString("%1").arg(days, 2, 10, QChar('0')));
+    result.replace("h", QString::number(days));
 
+    result.replace("hh", QString("%1").arg(hours, 2, 10, QChar('0')));
+    result.replace("h", QString::number(hours));
+
+    result.replace("mm", QString("%1").arg(mins, 2, 10, QChar('0')));
+    result.replace("m", QString::number(mins));
+
+    result.replace("ss", QString("%1").arg(secs, 2, 10, QChar('0')));
+    result.replace("s", QString::number(secs));
+
+    result.replace("zz", QString("%1").arg(msecs, 2, 10, QChar('0')));
+    result.replace("z", QString::number(msecs));
+
+    return result;
 }
 
 int FB_Timespan::getMsecs() const
